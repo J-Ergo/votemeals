@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Votemeals</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <title>VoteMeals</title>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> 
+
+<link rel="shortcut icon" href="http://gailmcquary.com/wp-content/uploads/2014/08/black-solid-color-background.jpg" /> 
+
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-    <ul>
+   <div class="container">
+         <ul class="nav nav-tabs">
+
         <li><%= link_to "Home", welcome_index_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
         <li><%= link_to "Contact", welcome_contact_path %></li>
    </ul>
-
   <%= yield %>
+  </div>
+
 
 </body>
 </html>
