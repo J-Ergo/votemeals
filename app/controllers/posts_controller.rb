@@ -16,7 +16,7 @@ def show
 
 def create
      @topic = Topic.find(params[:topic_id])
-     @post = Post.new(params.require(:post).permit(:title, :body))
+      @post = Post.new(post_params)
       @post.user = current_user
       @post.topic = @topic
       authorize @post
@@ -39,7 +39,7 @@ def create
      @topic = Topic.find(params[:topic_id])
      @post = Post.find(params[:id])
       authorize @post
-     if @post.update_attributes(params.require(:post).permit(:title, :body))
+     if @post.update_attributes(post_params)
        flash[:notice] = "Post was updated."
        redirect_to [@topic, @post]
      else
@@ -47,6 +47,12 @@ def create
        render :edit
      end
    end
+
+   private
+
+def post_params
+  params.require(:post).permit(:title, :body)
+end
 
 
 end
